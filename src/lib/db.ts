@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const url = '';
+const url = 'mongodb://localhost:27017';
 
 const client = new MongoClient(url);
 

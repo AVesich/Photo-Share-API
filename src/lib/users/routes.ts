@@ -1,6 +1,6 @@
-const getUserRoute: string = '/user/:userId';
+const getUserRoute: string = '/user/:userID';
 const createUserRoute: string = '/users';
-const updateUserRoute: string = '/user/:userId';
-const deleteUserRoute: string = '/user/:userId';
+const updateUserRoute: string = '/user/:userID';
+const deleteUserRoute: string = '/user/:userID';
 
 export { createUserRoute, getUserRoute, updateUserRoute, deleteUserRoute };

@@ -1,25 +1,36 @@
 import * as z from 'zod/mini';
 
-const UserSchema = z.object({
+const UserInfoSchema = z.object({
     _id: z.string(),
     username: z.string(),
-    email: z.string(),
-    passwordHash: z.string(),
     // profilePictureID: z.number()
 });
-export type User = z.output<typeof UserSchema>;
+type UserInfo = z.output<typeof UserInfoSchema>;
 
-const CreateUserSchema = z.object({
+const UnhashedUserPayloadSchema = z.object({
+    username: z.string(),
+    email: z.string(),
+    password: z.string()
+});
+type UnhashedUserPayload = z.output<typeof UnhashedUserPayloadSchema>;
+
+const CreateUserPayloadSchema = UnhashedUserPayloadSchema;
+type CreateUserPayload = UnhashedUserPayload;
+
+const HashedUserPayloadSchema = z.object({
     username: z.string(),
     email: z.string(),
     passwordHash: z.string()
 });
-export type CreatedUser = z.output<typeof CreateUserSchema>;
+type HashedUserPayload = z.output<typeof HashedUserPayloadSchema>;
+
+const CreateUserDocumentSchema = HashedUserPayloadSchema;
+type CreateUserDocument = HashedUserPayload;
 
 const UpdateUserSchema = z.object({
     username: z.nullable(z.optional(z.string())),
     profilePictureID: z.nullable(z.optional(z.string()))
 });
-export type UpdateUser = z.output<typeof UpdateUserSchema>;
+type UpdateUser = z.output<typeof UpdateUserSchema>;
 
-export { UserSchema, CreateUserSchema, UpdateUserSchema };
+export { UserInfoSchema, type UserInfo, UnhashedUserPayloadSchema, type UnhashedUserPayload, CreateUserPayloadSchema, type CreateUserPayload, HashedUserPayloadSchema, type HashedUserPayload, CreateUserDocumentSchema, type CreateUserDocument, UpdateUserSchema, type UpdateUser };
