@@ -5,4 +5,9 @@ const SuccessResultSchema = z.object({
 });
 type SuccessResult = z.infer<typeof SuccessResultSchema>;
 
-export { SuccessResultSchema, type SuccessResult };
+const DataResultSchema = z.object({
+    data: z.string(),
+});
+type DataResult = z.infer<typeof DataResultSchema>;
+
+export { SuccessResultSchema, type SuccessResult, DataResultSchema, type DataResult };

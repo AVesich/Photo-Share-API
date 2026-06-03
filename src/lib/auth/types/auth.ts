@@ -10,7 +10,7 @@ type RefreshAuthPayload = z.output<typeof RefreshAuthPayloadSchema>;
 const AuthDetailsSchema = z.object({
     _id: z.string(),
     username: z.string(),
-    passwordHash: z.string()
+    password_hash: z.string()
 });
 type AuthDetails = z.output<typeof AuthDetailsSchema>;
 
